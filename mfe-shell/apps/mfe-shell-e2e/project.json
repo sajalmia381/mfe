@@ -1,0 +1,26 @@
+{
+  "name": "mfe-shell-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/mfe-shell-e2e/src",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/mfe-shell-e2e/cypress.config.ts",
+        "testingType": "e2e",
+        "devServerTarget": "mfe-shell:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "mfe-shell:serve:production"
+        },
+        "ci": {
+          "devServerTarget": "mfe-shell:serve-static"
+        }
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["mfe-shell"]
+}
