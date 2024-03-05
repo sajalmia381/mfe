@@ -1,3 +1,3 @@
 declare module 'mfe-devops/RemoteEntryModule';
 
-// declare module 'mfe-k8s/Routes';
+declare module 'mfe-k8s/Module';

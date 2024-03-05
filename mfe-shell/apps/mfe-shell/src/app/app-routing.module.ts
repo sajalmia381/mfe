@@ -5,13 +5,16 @@ import { loadRemoteModule } from '@nx/angular/mf';
 export const appRoutes: Route[] = [
   {
     path: 'devops',
-    loadChildren: () => loadRemoteModule('mfe-devops', './RemoteEntryModule').then((m) => m.RemoteEntryModule),
+    loadChildren: () =>
+      loadRemoteModule('mfe-devops', './RemoteEntryModule').then(
+        (m) => m.RemoteEntryModule
+      ),
   },
-  // {
-  //   path: 'k8s',
-  //   loadChildren: () =>
-  //     loadRemoteModule('mfe-k8s', './Routes').then((m) => m.remoteRoutes),
-  // },
+  {
+    path: 'k8s',
+    loadChildren: () =>
+      loadRemoteModule('mfe-k8s', './Module').then((m) => m.RemoteEntryModule),
+  },
   {
     path: '',
     loadComponent: () =>
@@ -25,7 +28,7 @@ export const appRoutes: Route[] = [
       // preloadingStrategy: PreloadAllModules,
       // scrollPositionRestoration: 'enabled',
       // anchorScrolling: 'enabled',
-      initialNavigation: 'enabledBlocking'
+      initialNavigation: 'enabledBlocking',
     }),
   ],
   exports: [RouterModule],

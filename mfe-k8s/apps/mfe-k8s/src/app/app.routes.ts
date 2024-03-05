@@ -1,9 +1,13 @@
 import { Route } from '@angular/router';
+import { NxWelcomeComponent } from './nx-welcome.component';
 
 export const appRoutes: Route[] = [
   {
-    path: '',
+    path: 'k8s',
     loadChildren: () =>
-      import('./remote-entry/entry.routes').then((m) => m.remoteRoutes),
+      import('./remote-entry/entry.module').then((m) => m.RemoteEntryModule),
+  },
+  { 
+    path: '', component: NxWelcomeComponent
   },
 ];
