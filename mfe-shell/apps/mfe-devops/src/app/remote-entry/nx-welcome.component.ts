@@ -1,10 +1,8 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'mfe-shell-nx-welcome',
   standalone: true,
-  imports: [CommonModule],
+  selector: 'mfe-shell-nx-welcome',
   template: `
     <!--
      * * * * * * * * * * * * * * * * * * * * * * * * * * * *

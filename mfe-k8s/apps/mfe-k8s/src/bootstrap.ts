@@ -5,3 +5,11 @@ import { RemoteEntryComponent } from './app/remote-entry/entry.component';
 bootstrapApplication(RemoteEntryComponent, appConfig).catch((err) =>
   console.error(err)
 );
+
+// import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+
+// import('mfe-shell/AppModule').then((m) =>
+//   platformBrowserDynamic()
+//     .bootstrapModule(m.AppModule)
+//     .catch((err) => console.error(err))
+// );

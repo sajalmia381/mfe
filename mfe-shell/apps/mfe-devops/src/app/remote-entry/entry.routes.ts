@@ -1,8 +1,12 @@
-import { Route } from '@angular/router';
-import { RemoteEntryComponent } from './entry.component';
+import { NgModule } from '@angular/core';
+import { Route, RouterModule } from '@angular/router';
 
-export const remoteRoutes: Route[] = [
-  { path: '', component: RemoteEntryComponent },
+const remoteRoutes: Route[] = [
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'namespaces',
+  },
   {
     path: 'namespaces',
     loadChildren: () =>
@@ -11,7 +15,9 @@ export const remoteRoutes: Route[] = [
   {
     path: 'applications',
     loadChildren: () =>
-      import('../application/application.module').then((m) => m.ApplicationModule),
+      import('../application/application.module').then(
+        (m) => m.ApplicationModule
+      ),
   },
   {
     path: 'clusters',
@@ -19,3 +25,9 @@ export const remoteRoutes: Route[] = [
       import('../cluster/cluster.module').then((m) => m.ClusterModule),
   },
 ];
+
+@NgModule({
+  imports: [RouterModule.forChild(remoteRoutes)],
+  exports: [RouterModule],
+})
+export class RemoteRoutesModule {}

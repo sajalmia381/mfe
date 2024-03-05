@@ -1,0 +1,4 @@
+{
+  "mfe-devops": "http://localhost:4201",
+  "mfe-k8s": "http://localhost:4202"
+}

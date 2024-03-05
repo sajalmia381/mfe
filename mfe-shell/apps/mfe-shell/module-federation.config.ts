@@ -23,12 +23,12 @@ const config: ModuleFederationConfig = {
    * declare module 'my-external-remote';
    *
    */
-  remotes: ['mfe-devops', ['k8s', 'http://localhost:4202/remoteEntry.mjs']],
-
-  library: { type: 'var', name: 'appshell' },
+  remotes: [], // 'mfe-devops' ,['mfe-k8s', 'http://localhost:4202/remoteEntry.mjs']
+  
+  // library: { type: 'var', name: 'appshell' },
   exposes: {
-    './AppConfig': 'apps/mfe-shell/src/app/app.config.ts',
-    './AppComponent': 'apps/mfe-shell/src/app/app.component.ts',
+    './AppModule': 'apps/mfe-shell/src/app/app.module.ts',
+    './ShellBootstrap': 'apps/mfe-shell/src/bootstrap.ts',
   },
 
   // // Share core libraries, and avoid everything else
