@@ -4,7 +4,9 @@ import { appRoutes } from './app.routes';
 import { NxWelcomeComponent } from './nx-welcome.component';
 import { AppComponent } from './app.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { CoreModule } from 'mfe-shell/CoreModule';
 
+console.log(CoreModule)
 @NgModule({
   declarations: [AppComponent],
   imports: [

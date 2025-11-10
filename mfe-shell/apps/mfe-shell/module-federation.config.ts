@@ -25,34 +25,36 @@ const config: ModuleFederationConfig = {
    */
   remotes: [], // 'mfe-devops' ,['mfe-k8s', 'http://localhost:4202/remoteEntry.mjs']
   
-  // library: { type: 'var', name: 'appshell' },
+  library: { type: 'var', name: 'appshell' },
   exposes: {
-    './AppModule': 'apps/mfe-shell/src/app/app.module.ts',
-    './ShellBootstrap': 'apps/mfe-shell/src/bootstrap.ts',
+    './CoreModule': 'apps/mfe-shell/src/app/core/core.module.ts',
+    // './AppModule': 'apps/mfe-shell/src/app/app.module.ts',
+    // './ShellBootstrap': 'apps/mfe-shell/src/bootstrap.ts',
   },
 
   // // Share core libraries, and avoid everything else
-  // shared: (libraryName, defaultConfig) => {
-  //   if (coreLibraries.has(libraryName)) {
-  //     return defaultConfig;
+  shared: (libraryName, defaultConfig) => {
+    if (coreLibraries.has(libraryName)) {
+      console.log('libraryName', libraryName)
+      return defaultConfig;
+    }
+    // Returning false means the library is not shared.
+    return false;
+  },
+  // additionalShared: [
+  //   {
+  //     libraryName: '@angular/core',
+  //     sharedConfig: { singleton: true, strictVersion: true },
+  //   },
+  //   {
+  //     libraryName: '@angular/common',
+  //     sharedConfig: { singleton: true, strictVersion: true },
+  //   },
+  //   {
+  //     libraryName: '@angular/router',
+  //     sharedConfig: { singleton: true, strictVersion: true },
   //   }
-  //   // Returning false means the library is not shared.
-  //   return false;
-  // },
-  additionalShared: [
-    {
-      libraryName: '@angular/core',
-      sharedConfig: { singleton: true, strictVersion: true },
-    },
-    {
-      libraryName: '@angular/common',
-      sharedConfig: { singleton: true, strictVersion: true },
-    },
-    {
-      libraryName: '@angular/router',
-      sharedConfig: { singleton: true, strictVersion: true },
-    },
-  ],
+  // ],
 };
 
 export default config;

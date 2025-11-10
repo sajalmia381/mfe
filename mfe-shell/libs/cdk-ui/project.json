@@ -1,0 +1,9 @@
+{
+  "name": "cdk-ui",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/cdk-ui/src",
+  "prefix": "mfe-shell",
+  "tags": ["ui"],
+  "projectType": "library",
+  "targets": {}
+}
